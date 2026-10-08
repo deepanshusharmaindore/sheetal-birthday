@@ -56,19 +56,24 @@ h2{font-family:Georgia,serif;font-size:clamp(1.8rem,7vw,3.7rem);margin:7px 0 16p
 #secretMsg{display:none;margin:14px auto 0;max-width:580px;padding:15px;border-radius:18px;background:rgba(255,255,255,.08);line-height:1.55}
 .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#ff4d8d,#c16cff);z-index:70;width:0;transition:.35s}
 @media(max-width:600px){
- .screen{padding:20px 12px 88px}
- .card{padding:17px;max-height:61vh}
+ .screen{padding:20px 12px 120px;overflow-y:auto;overflow-x:hidden;align-items:flex-start;justify-content:center;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}
+ .inner{max-height:none;overflow:visible;padding-bottom:10px}
+ .card{padding:17px;max-height:none;overflow:visible}
  .choice-box{padding:20px 14px}
  .choice-buttons{gap:9px}
  .choice{min-height:63px;padding:11px 10px}
- .gallery-wrap{height:63vh}
+ .gallery-wrap{height:63vh;flex-shrink:0}
  .gallery-page{grid-template-columns:repeat(2,1fr);gap:7px}
  .memory-card p{font-size:.63rem}
  .nav .btn{min-width:100px;padding:11px 14px;font-size:.87rem}
 }
+@media(max-width:600px) and (max-height:700px){
+ .screen{padding-top:14px}
+ h2{font-size:clamp(1.65rem,7vw,2.4rem)}
+}
 </style></head><body>
 <div class="progress" id="progress"></div>
-<audio id="bgMusic" src="assets/birthday.mp3" loop preload="auto" autoplay></audio><div id="app"><div class="music"><button id="musicBtn" aria-label="Play music">🎵</button></div>
+<audio id="bgMusic" src="assets/birthday.mp3" loop preload="auto"></audio><div id="app"><div class="music"><button id="musicBtn" aria-label="Play music">🎵</button></div>
 
 <section class="screen active" id="s0"><div class="inner">
 <div class="kicker">A secret birthday game</div><h1>Hey Sheetal… 👀</h1>
@@ -146,7 +151,6 @@ function go(n){
  screens[current].classList.remove('active');current=n;screens[current].classList.add('active');
  document.getElementById('progress').style.width=((n/(screens.length-1))*100)+'%';
  if(n===6)updateMemory();
- if(n===7)startMusic();
 }
 function choice1(v){document.getElementById('r1').textContent=v==='good'?'😇 Correct! I knew you would choose Good Girl… but I still have my doubts. 😂':'😈 At least you are honest! But Deepanshu has evidence against you. 😂';setTimeout(()=>go(1),950)}
 function choice2(v){document.getElementById('r2').textContent=v==='deepanshu'?'❤️ Correct answer. Deepanshu wins this round. 😌':'💕 Nice try… Deepanshu is going to appeal this decision. 😂';setTimeout(()=>go(2),950)}
@@ -158,23 +162,7 @@ function heart(){const h=document.createElement('div');h.className='heart';h.tex
 setInterval(heart,650);
 function roast(type){document.getElementById('roast').textContent=type==='bad'?'CONFIRMED. 😈😂 But fortunately, you are Deepanshu-approved. ❤️':'Innocent? Hmm… the evidence strongly disagrees. 😂❤️'}
 function unlock(){document.getElementById('secretMsg').style.display='block';for(let i=0;i<18;i++)setTimeout(heart,i*80)}
-const music=document.getElementById('bgMusic');
-const musicBtn=document.getElementById('musicBtn');
-let musicStarted=false, userStoppedMusic=false;
-function musicOn(){musicBtn.textContent='🔊';musicBtn.setAttribute('aria-label','Pause music');}
-function musicOff(){musicBtn.textContent='🎵';musicBtn.setAttribute('aria-label','Play music');}
-async function startMusic(){
- if(userStoppedMusic)return;
- try{await music.play();musicStarted=true;musicOn();}catch(e){/* Browser autoplay policy may require the first tap. */}
-}
-musicBtn.onclick=async()=>{
- if(music.paused){userStoppedMusic=false;await startMusic();}
- else{music.pause();musicStarted=false;userStoppedMusic=true;musicOff();}
-};
-startMusic();
-document.addEventListener('click',async(e)=>{
- if(!musicStarted && !userStoppedMusic && e.target!==musicBtn) await startMusic();
-});
+const music=document.getElementById('bgMusic'); const musicBtn=document.getElementById('musicBtn'); let musicStarted=false; musicBtn.onclick=async()=>{try{if(music.paused){await music.play();musicStarted=true;musicBtn.textContent='🔊';musicBtn.setAttribute('aria-label','Pause music')}else{music.pause();musicBtn.textContent='🎵';musicBtn.setAttribute('aria-label','Play music')}}catch(e){musicBtn.textContent='🎵'}}; document.addEventListener('click', async (e)=>{if(!musicStarted && e.target!==musicBtn){try{await music.play();musicStarted=true;musicBtn.textContent='🔊';musicBtn.setAttribute('aria-label','Pause music')}catch(e){}}},{once:true});
 updateMemory();
 </script>
 </body></html>
