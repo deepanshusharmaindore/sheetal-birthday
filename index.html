@@ -1,0 +1,180 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>For Sheetal ❤️ — From Deepanshu</title><style>
+:root{--bg:#120711;--pink:#ff6f9f;--rose:#ff3f79;--purple:#9b4dff;--gold:#ffd98a;--text:#fff8fb;--muted:#e9cdd8}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body{background:radial-gradient(circle at 15% 0%,rgba(255,95,145,.22),transparent 35%),radial-gradient(circle at 90% 20%,rgba(155,77,255,.18),transparent 32%),var(--bg)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.18) 1px,transparent 1px);background-size:28px 28px;opacity:.14}
+#app{width:100%;height:100%;position:relative}
+.screen{position:absolute;inset:0;display:none;overflow:hidden;padding:28px 17px 92px;align-items:center;justify-content:center}
+.screen.active{display:flex;animation:in .45s ease}
+@keyframes in{from{opacity:0;transform:scale(.985) translateY(10px)}to{opacity:1;transform:none}}
+.inner{width:min(920px,100%);max-height:100%;overflow:hidden;text-align:center}
+.kicker{letter-spacing:.2em;text-transform:uppercase;color:#ffc2d6;font-size:.7rem;margin-bottom:10px}
+h1{font-family:Georgia,serif;font-size:clamp(3.2rem,16vw,7rem);line-height:.9;margin:10px 0;background:linear-gradient(120deg,#fff,#ffb3cc,#ffd98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-family:Georgia,serif;font-size:clamp(1.8rem,7vw,3.7rem);margin:7px 0 16px}
+.lead{font-size:clamp(.96rem,3.8vw,1.18rem);line-height:1.6;color:var(--muted);max-width:680px;margin:10px auto}
+.btn{border:0;border-radius:999px;padding:13px 19px;font-weight:800;cursor:pointer;color:white;background:linear-gradient(135deg,var(--rose),#b62cff);box-shadow:0 10px 35px rgba(255,63,121,.25);font-size:.96rem;transition:.2s}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn.secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:none}
+.btn.green{background:linear-gradient(135deg,#23b26d,#138b9f)}
+.btn.gold{background:linear-gradient(135deg,#f3a62f,#e95c78)}
+.nav{position:absolute;left:0;right:0;bottom:17px;display:flex;justify-content:center;gap:8px;z-index:30;padding:0 12px}
+.nav .btn{min-width:112px}
+.music{position:fixed;right:14px;top:14px;z-index:60}
+.music button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(20,7,17,.72);backdrop-filter:blur(12px);color:white;font-size:1.05rem}
+.heart{position:fixed;bottom:-30px;z-index:10;pointer-events:none;animation:float 7s linear forwards;opacity:.7}
+@keyframes float{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.card{background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.11);border-radius:25px;padding:20px;line-height:1.65;max-height:65vh;overflow:auto;text-align:left;box-shadow:0 20px 70px rgba(0,0,0,.2)}
+.card p{margin:0 0 12px} .card p:last-child{margin-bottom:0}
+.choice-box{max-width:700px;margin:auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:28px;padding:24px 18px;box-shadow:0 20px 70px rgba(0,0,0,.22)}
+.choice-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.choice{min-height:68px;font-size:1rem}
+.result{min-height:28px;margin:16px 0 0;color:#ffd1df;font-weight:750}
+.small{font-size:.82rem;color:#cfaebd}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);margin:3px;font-size:.78rem}
+.gallery-wrap{height:min(65vh,600px);position:relative}
+.gallery-page{display:none;height:100%;grid-template-columns:repeat(3,1fr);gap:8px}
+.gallery-page.active{display:grid}
+.memory-card{margin:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:5px;overflow:hidden}
+.photo-wrap{height:calc(100% - 31px);overflow:hidden;border-radius:11px;background:#21121b}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.memory-card p{font-size:.68rem;color:#f4dce5;margin:5px 3px 0;line-height:1.12}
+.page-count{font-size:.75rem;color:#dcb8c8;margin-top:5px}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:8px}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)}
+.dot.active{background:#ff7aa8}
+.shayari{display:grid;gap:9px;max-width:720px;margin:auto}
+.verse{padding:14px 17px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-family:Georgia,serif;font-size:clamp(.9rem,3.6vw,1.12rem);line-height:1.4}
+.funny{background:linear-gradient(135deg,rgba(255,191,80,.1),rgba(255,64,125,.08));border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:21px}
+.steps{display:grid;gap:7px;max-width:520px;margin:15px auto}
+.step{padding:9px 12px;border-radius:13px;background:rgba(255,255,255,.07);font-size:.9rem}
+.step b{color:#ffd98a}
+#roast{min-height:25px;margin-top:12px;font-weight:750;color:#ffc1d5}
+.cake{font-size:5rem;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.secret{margin-top:14px}
+#secretMsg{display:none;margin:14px auto 0;max-width:580px;padding:15px;border-radius:18px;background:rgba(255,255,255,.08);line-height:1.55}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#ff4d8d,#c16cff);z-index:70;width:0;transition:.35s}
+@media(max-width:600px){
+ .screen{padding:20px 12px 88px}
+ .card{padding:17px;max-height:61vh}
+ .choice-box{padding:20px 14px}
+ .choice-buttons{gap:9px}
+ .choice{min-height:63px;padding:11px 10px}
+ .gallery-wrap{height:63vh}
+ .gallery-page{grid-template-columns:repeat(2,1fr);gap:7px}
+ .memory-card p{font-size:.63rem}
+ .nav .btn{min-width:100px;padding:11px 14px;font-size:.87rem}
+}
+</style></head><body>
+<div class="progress" id="progress"></div>
+<audio id="bgMusic" src="assets/birthday.mp3" loop preload="auto" autoplay></audio><div id="app"><div class="music"><button id="musicBtn" aria-label="Play music">🎵</button></div>
+
+<section class="screen active" id="s0"><div class="inner">
+<div class="kicker">A secret birthday game</div><h1>Hey Sheetal… 👀</h1>
+<p class="lead">Before I let you enter your birthday surprise, you have to answer a few very important questions.</p>
+<div class="choice-box"><h2 style="font-size:clamp(1.5rem,6vw,2.5rem)">Are you a Good Girl or a Bad Girl? 😈</h2>
+<div class="choice-buttons"><button class="btn green choice" onclick="choice1('good')">😇 Good Girl</button><button class="btn gold choice" onclick="choice1('bad')">😈 Bad Girl</button></div><div class="result" id="r1"></div></div></div></section>
+
+<section class="screen" id="s1"><div class="inner"><div class="kicker">Question 2</div><div class="choice-box">
+<h2 style="font-size:clamp(1.6rem,7vw,2.7rem)">Who is more in love? ❤️</h2><p class="small">Think carefully… this answer may affect your future 😂</p>
+<div class="choice-buttons"><button class="btn choice" onclick="choice2('deepanshu')">❤️ Deepanshu</button><button class="btn choice" onclick="choice2('sheetal')">💕 Sheetal</button></div><div class="result" id="r2"></div></div></div></section>
+
+<section class="screen" id="s2"><div class="inner"><div class="kicker">Final verification</div><div class="choice-box">
+<h2 style="font-size:clamp(1.6rem,7vw,2.7rem)">Are we in love? 🥹</h2>
+<div class="choice-buttons"><button class="btn green choice" onclick="choice3('yes')">💖 Obviously YES</button><button class="btn secondary choice" onclick="choice3('no')">🙈 No…</button></div><div class="result" id="r3"></div></div></div></section>
+
+<section class="screen" id="s3"><div class="inner"><div class="kicker">Verification complete ✓</div><h1>Welcome, Sheetal ❤️</h1><p class="lead">Okay. You passed. 😌<br>Now the real surprise begins.</p>
+<div><span class="badge">Good Girl ✓</span><span class="badge">In Love ✓</span><span class="badge">Deepanshu-approved ✓</span></div>
+<div class="nav"><button class="btn" onclick="go(4)">Enter our story ✨</button></div></div></section>
+
+<section class="screen" id="s4"><div class="inner"><div class="kicker">Chapter 1</div><h2>Whenever you're with me…</h2>
+<div class="card"><p>Achha khaasa baitha hota hoon… aur pata nahi kab gum ho jaata hoon. Phir lagta hai, main main nahi rehta — <b>tum ho jaata hoon.</b> ❤️</p>
+<p>Hamari memories kisi perfect plan se nahi bani. Kabhi hasi, kabhi pagalpan, kabhi chhoti si nok-jhok… aur kabhi tumhara woh famous gussa. 😂</p>
+<p>Tum important baat bhool jaati ho, phir main yaad dilata hoon, phir tum mujh par hi gussa hoti ho… aur agar galti tumhari ho, tab bhi somehow blame mujhe mil jaata hai. 😭😂</p>
+<p>But honestly, in sab ke beech jo cheez mujhe sabse zyada pasand hai… woh hai <b>tumhara mere saath hona.</b></p></div>
+<div class="nav"><button class="btn secondary" onclick="go(3)">← Back</button><button class="btn" onclick="go(5)">Our 6 months →</button></div></div></section>
+
+<section class="screen" id="s5"><div class="inner"><div class="kicker">A little confession ❤️</div><h2>6 months. So many memories.</h2>
+<div class="choice-box six-month"><div><span class="badge">📅 6 months</span><span class="badge">☕ 2+ meetings almost every week</span><span class="badge">😂 Countless stupid conversations</span><span class="badge">😤 Unlimited Sheetal anger</span></div>
+<h2 style="font-size:clamp(1.55rem,6vw,2.5rem);margin-top:20px">One tiny problem…</h2>
+<p class="lead"><b>We have no proper couple photo. 😂</b></p><p class="lead">Seriously… how did we manage that?</p>
+<p class="lead">Maybe we were too busy <b>living the moments</b> to stop and take pictures of them.</p>
+<p class="lead">We meet, we talk, we laugh, we fight, you forget important conversations, you get angry, somehow I become the guilty one… and then we meet again. 😂❤️</p>
+<p class="lead"><b>Six months later, we still don't have the perfect couple picture.</b></p>
+<p class="lead">But we have something better — <b>hundreds of little moments that only we remember.</b> ❤️</p>
+<button class="btn" onclick="go(6)">Show me those memories 📸</button></div>
+<div class="nav"><button class="btn secondary" onclick="go(4)">← Story</button></div></div></section>
+
+<section class="screen" id="s6"><div class="inner"><div class="kicker">Chapter 2</div><h2>Our memories 📸</h2>
+<div class="gallery-wrap"><div class="gallery-page" data-page="0"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-01.jpeg" loading="lazy" alt="Sheetal memory 1"></div><p>A little piece of you ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-02.jpeg" loading="lazy" alt="Sheetal memory 2"></div><p>Another memory I want to keep forever.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-03.jpeg" loading="lazy" alt="Sheetal memory 3"></div><p>Your smile, my favorite view.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-04.jpeg" loading="lazy" alt="Sheetal memory 4"></div><p>Some moments simply become memories.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-05.jpeg" loading="lazy" alt="Sheetal memory 5"></div><p>Beautiful, as always. ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-06.jpeg" loading="lazy" alt="Sheetal memory 6"></div><p>One more reason to smile.</p></article></div><div class="gallery-page" data-page="1"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-07.jpeg" loading="lazy" alt="Sheetal memory 7"></div><p>Just you being you.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-08.jpeg" loading="lazy" alt="Sheetal memory 8"></div><p>A memory worth replaying.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-09.jpeg" loading="lazy" alt="Sheetal memory 9"></div><p>A little piece of you ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-10.jpeg" loading="lazy" alt="Sheetal memory 10"></div><p>Another memory I want to keep forever.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-11.jpeg" loading="lazy" alt="Sheetal memory 11"></div><p>Your smile, my favorite view.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-12.jpeg" loading="lazy" alt="Sheetal memory 12"></div><p>Some moments simply become memories.</p></article></div><div class="gallery-page" data-page="2"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-13.jpeg" loading="lazy" alt="Sheetal memory 13"></div><p>Beautiful, as always. ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-14.jpeg" loading="lazy" alt="Sheetal memory 14"></div><p>One more reason to smile.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-15.jpeg" loading="lazy" alt="Sheetal memory 15"></div><p>Just you being you.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-16.jpeg" loading="lazy" alt="Sheetal memory 16"></div><p>A memory worth replaying.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-17.jpeg" loading="lazy" alt="Sheetal memory 17"></div><p>A little piece of you ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-18.jpeg" loading="lazy" alt="Sheetal memory 18"></div><p>Another memory I want to keep forever.</p></article></div><div class="gallery-page" data-page="3"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-19.jpeg" loading="lazy" alt="Sheetal memory 19"></div><p>Your smile, my favorite view.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-20.jpeg" loading="lazy" alt="Sheetal memory 20"></div><p>Some moments simply become memories.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-21.jpeg" loading="lazy" alt="Sheetal memory 21"></div><p>Beautiful, as always. ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-22.jpeg" loading="lazy" alt="Sheetal memory 22"></div><p>One more reason to smile.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-23.jpeg" loading="lazy" alt="Sheetal memory 23"></div><p>Just you being you.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-24.jpeg" loading="lazy" alt="Sheetal memory 24"></div><p>A memory worth replaying.</p></article></div><div class="gallery-page" data-page="4"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-25.jpeg" loading="lazy" alt="Sheetal memory 25"></div><p>A little piece of you ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-26.jpeg" loading="lazy" alt="Sheetal memory 26"></div><p>Another memory I want to keep forever.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-27.jpeg" loading="lazy" alt="Sheetal memory 27"></div><p>Your smile, my favorite view.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-28.jpeg" loading="lazy" alt="Sheetal memory 28"></div><p>Some moments simply become memories.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-29.jpeg" loading="lazy" alt="Sheetal memory 29"></div><p>Beautiful, as always. ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-30.jpeg" loading="lazy" alt="Sheetal memory 30"></div><p>One more reason to smile.</p></article></div><div class="gallery-page" data-page="5"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-31.jpeg" loading="lazy" alt="Sheetal memory 31"></div><p>Just you being you.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-32.jpeg" loading="lazy" alt="Sheetal memory 32"></div><p>A memory worth replaying.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-33.jpeg" loading="lazy" alt="Sheetal memory 33"></div><p>A little piece of you ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-34.jpeg" loading="lazy" alt="Sheetal memory 34"></div><p>Another memory I want to keep forever.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-35.jpeg" loading="lazy" alt="Sheetal memory 35"></div><p>Your smile, my favorite view.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-36.jpeg" loading="lazy" alt="Sheetal memory 36"></div><p>Some moments simply become memories.</p></article></div><div class="gallery-page" data-page="6"><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-37.jpeg" loading="lazy" alt="Sheetal memory 37"></div><p>Beautiful, as always. ❤️</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-38.jpeg" loading="lazy" alt="Sheetal memory 38"></div><p>One more reason to smile.</p></article><article class="memory-card"><div class="photo-wrap"><img src="assets/memory-39.jpeg" loading="lazy" alt="Sheetal memory 39"></div><p>Just you being you.</p></article></div></div><div class="page-count" id="pageCount"></div>
+<div class="dots" id="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+<div class="nav"><button class="btn secondary" onclick="go(5)">← 6 months</button><button class="btn" id="memoryNext" onclick="nextMemory()">More memories →</button></div></div></section>
+
+<section class="screen" id="s7"><div class="inner"><div class="kicker">Chapter 3</div><h2>A letter for you 💌</h2><div class="card">
+<p>Dear Sheetal,</p><p>Har relationship mein perfect days nahi hote. Hamare bhi nahi hain. Lekin hamare paas woh chhote-chhote moments hain jo bina kisi reason ke yaad aa jaate hain aur smile de dete hain.</p>
+<p>Tumhari simplicity, tumhari smile, tumhara gussa, tumhari funny baatein — sab kuch apne-apne tareeke se meri life ka part ban gaya hai.</p>
+<p>Kabhi tum mujhe samajh jaati ho bina kuch kahe, aur kabhi main poori duniya samjha doon phir bhi tum bolti ho, “Meri galti nahi hai.” 😂</p>
+<p>Bas aise hi rehna. Thodi si pagal, thodi si gusse wali, thodi si cute… aur meri favourite Sheetal. ❤️</p>
+<p><b>Happy Birthday, Sheetal.</b><br>May your smile stay exactly where it belongs — on your face.</p><p style="text-align:right"><b>— Deepanshu ❤️</b></p></div>
+<div class="nav"><button class="btn secondary" onclick="go(6)">← Memories</button><button class="btn" onclick="go(8)">Shayari →</button></div></div></section>
+
+<section class="screen" id="s8"><div class="inner"><div class="kicker">Chapter 4</div><h2>For you… ✨</h2><div class="shayari">
+<div class="verse">Acha khaasa bethe bethe<br>Gum ho jata hu<br>Me ab aksar me nhi reta<br><b>Tum ho jata hu ❤️</b></div>
+<div class="verse">Mene kagaj pr jb jb<br>Ham likha hai<br>Naam tera jada apna<br><b>Kam likha hai ❤️</b></div>
+<div class="verse">Teri sadgi me itna husn hai<br>Tera husna kya hoga<br>Ho tere ghusse me itna pyar hai<br><b>Tera pyar kya hoga ❤️</b></div></div>
+<div class="nav"><button class="btn secondary" onclick="go(7)">← Letter</button><button class="btn" onclick="go(9)">One more game 😈 →</button></div></div></section>
+
+<section class="screen" id="s9"><div class="inner"><div class="kicker">Chapter 5</div><h2>Sheetal's relationship rules 😂</h2><div class="funny">
+<div class="steps"><div class="step">Important baat chal rahi hai → <b>Sheetal forgets</b></div><div class="step">Deepanshu reminds her → <b>Sheetal gets angry</b></div><div class="step">Somehow → <b>Deepanshu gets blamed</b></div><div class="step">Final result → <b>Deepanshu says sorry 😂❤️</b></div></div>
+<button class="btn" onclick="roast('innocent')">I am innocent 😇</button><button class="btn gold" onclick="roast('bad')">Okay, I am the Bad Girl 😈</button><div id="roast"></div></div>
+<div class="nav"><button class="btn secondary" onclick="go(8)">← Shayari</button><button class="btn" onclick="go(10)">Birthday →</button></div></div></section>
+
+<section class="screen" id="s10"><div class="inner"><div class="cake">🎂</div><div class="kicker">The most important part</div><h2>Happy Birthday, Sheetal! ❤️</h2>
+<p class="lead">May this year give you countless reasons to smile, laugh, dream and make even more memories with me.</p>
+<p class="lead"><i>And maybe… finally get us that first proper couple photo. 😉❤️</i></p>
+<button class="btn secret" onclick="unlock()">🔐 Open one last secret</button>
+<div id="secretMsg">If you ever wonder what my favorite memory is…<br><br><b>It's not one particular photo.</b><br>It's every ordinary moment that became special simply because you were there. ❤️<br><br>— Deepanshu</div>
+<div class="nav"><button class="btn secondary" onclick="go(9)">← Back</button><button class="btn" onclick="go(0)">Replay ❤️</button></div></div></section>
+</div>
+
+<script>
+let current=0,mem=0;
+const screens=[...document.querySelectorAll('.screen')];
+function go(n){
+ if(n<0||n>=screens.length)return;
+ screens[current].classList.remove('active');current=n;screens[current].classList.add('active');
+ document.getElementById('progress').style.width=((n/(screens.length-1))*100)+'%';
+ if(n===6)updateMemory();
+ if(n===7)startMusic();
+}
+function choice1(v){document.getElementById('r1').textContent=v==='good'?'😇 Correct! I knew you would choose Good Girl… but I still have my doubts. 😂':'😈 At least you are honest! But Deepanshu has evidence against you. 😂';setTimeout(()=>go(1),950)}
+function choice2(v){document.getElementById('r2').textContent=v==='deepanshu'?'❤️ Correct answer. Deepanshu wins this round. 😌':'💕 Nice try… Deepanshu is going to appeal this decision. 😂';setTimeout(()=>go(2),950)}
+function choice3(v){if(v==='yes'){document.getElementById('r3').textContent='🥹 Obviously. Case closed.';setTimeout(()=>go(3),900)}else document.getElementById('r3').textContent='🙈 Wrong answer! Please try again. The correct answer is YES. 😂❤️'}
+const pages=[...document.querySelectorAll('.gallery-page')];
+function updateMemory(){pages.forEach((p,i)=>p.classList.toggle('active',i===mem));document.getElementById('pageCount').textContent=`Memory page ${mem+1} / ${pages.length}`;document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===mem));document.getElementById('memoryNext').textContent=mem<pages.length-1?'More memories →':'Continue →'}
+function nextMemory(){if(mem<pages.length-1){mem++;updateMemory()}else{mem=0;updateMemory();go(7)}}
+function heart(){const h=document.createElement('div');h.className='heart';h.textContent=['❤️','💗','💕','💖','✨'][Math.floor(Math.random()*5)];h.style.left=(Math.random()*100)+'vw';h.style.fontSize=(14+Math.random()*20)+'px';h.style.animationDuration=(5+Math.random()*4)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),9000)}
+setInterval(heart,650);
+function roast(type){document.getElementById('roast').textContent=type==='bad'?'CONFIRMED. 😈😂 But fortunately, you are Deepanshu-approved. ❤️':'Innocent? Hmm… the evidence strongly disagrees. 😂❤️'}
+function unlock(){document.getElementById('secretMsg').style.display='block';for(let i=0;i<18;i++)setTimeout(heart,i*80)}
+const music=document.getElementById('bgMusic');
+const musicBtn=document.getElementById('musicBtn');
+let musicStarted=false, userStoppedMusic=false;
+function musicOn(){musicBtn.textContent='🔊';musicBtn.setAttribute('aria-label','Pause music');}
+function musicOff(){musicBtn.textContent='🎵';musicBtn.setAttribute('aria-label','Play music');}
+async function startMusic(){
+ if(userStoppedMusic)return;
+ try{await music.play();musicStarted=true;musicOn();}catch(e){/* Browser autoplay policy may require the first tap. */}
+}
+musicBtn.onclick=async()=>{
+ if(music.paused){userStoppedMusic=false;await startMusic();}
+ else{music.pause();musicStarted=false;userStoppedMusic=true;musicOff();}
+};
+startMusic();
+document.addEventListener('click',async(e)=>{
+ if(!musicStarted && !userStoppedMusic && e.target!==musicBtn) await startMusic();
+});
+updateMemory();
+</script>
+</body></html>
